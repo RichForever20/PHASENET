@@ -14,19 +14,15 @@
         label {
             display: block;
             margin-top: 10px;
-            margin-left: 20px;
         }
         input, textarea, select {
-            width: 90%;
+            width: 100%;
             padding: 8px;
             margin-top: 5px;
-            margin-left: 20px;
-            
         }
         .checkbox {
             display: inline-block;
-            /* margin-top: 10px; */
-            
+            margin-top: 10px;
         }
         button {
             display: block;
@@ -42,22 +38,6 @@
             background-color: #CCCCCC;
             cursor: not-allowed;
         }
-        h1{
-          font-size: 18px;
-          margin-left: 20px;
-        }
-        #requestNDA{
-          position: relative;
-          left: -270px;
-        }
-        .form{
-          border: 1px solid black;
-        }
-        p{
-            margin-left: 20px;
-
-        }
-        
     </style>
 </head>
 <body>
@@ -102,7 +82,7 @@
         <button type="submit" id="submitButton">Submit</button>
     </form>
     
-    <p class="text-center" id="thankYouMessage" style="display: none;">We appreciate your interest in joining us as a partner. A representative from our team will reach out to you soon.</p>
+    <p id="thankYouMessage" style="display: none;">We appreciate your interest in joining us as a partner. A representative from our team will reach out to you soon.</p>
     
     <script>
         const form = document.forms['join-us-form'];
