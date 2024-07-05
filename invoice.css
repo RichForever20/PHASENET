@@ -1,0 +1,41 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .breadcrumb {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  .breadcrumb li {
+    display: flex;
+    align-items: center;
+  }
+  
+  .breadcrumb li + li:before {
+    content: '>';
+    margin: 0 8px;
+    color: #555;
+  }
+  
+  .breadcrumb a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+  
+  .breadcrumb li:last-child {
+    color: #555;
+  }
+  
+  .breadcrumb li:last-child a {
+    pointer-events: none;
+    cursor: default;
+  }
+  

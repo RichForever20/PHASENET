@@ -1,0 +1,84 @@
+/* .product{
+   background-attachment: fixed;
+   background-image: url("assets/images/footer-img1.jpg");
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+   height: 490px;
+} */
+.layer{
+    /* background-color: rgba(10, 10, 9, 0.7); */
+    position: relative;
+    /* top: 471px; */
+    left: 0;
+    width: 100%;
+    /* height: 490px; */
+    /* bottom: 70px; */
+   
+}
+.pro1, .pro2{
+padding-top:70px ;
+}
+.pro1{
+    font-size: 40px;
+}
+@media (max-width: 375px){
+    .layer{
+        bottom: 30px;
+    }
+    .pro1, .pro2{
+        padding-top: 40px;
+    }
+    .hub{
+        font-size: 20px;
+    }
+    .pro1{
+        font-size: 25px;
+    }
+   
+   
+}
+@media (max-width: 375px){
+    .coming-soon{
+        height: 100px;
+    }
+}
+.coming-soon{
+    background-image: url("assets/images/coming-soon.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+}
+.fancybox {
+    display: inline-block;
+    vertical-align: top;
+}
+.fancybox img {
+    display: block;
+}
+.thumb{
+    display: flex;
+    justify-content: space-around;
+}
+.nail{
+    margin-top: 50px;
+}
+@media (max-width: 375px){
+.nail{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+}
+.nail p{
+    text-align: justify;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+@media (max-width: 438px){
+.cms{
+    padding-left: 12px;
+}
+}
