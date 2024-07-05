@@ -14,11 +14,14 @@
         label {
             display: block;
             margin-top: 10px;
+            margin-left: 20px;
+
         }
         input, textarea, select {
-            width: 100%;
+            width: 90%;
             padding: 8px;
             margin-top: 5px;
+            margin-left: 20px;
         }
         .checkbox {
             display: inline-block;
@@ -26,21 +29,34 @@
         }
         button {
             display: block;
-            width: 100%;
+            width: 20%;
             padding: 10px;
             margin-top: 20px;
             background-color: #007BFF;
             color: white;
             border: none;
             cursor: pointer;
+            position: relative;
+            bottom: 10px;
+            left: 240px;
         }
         button:disabled {
             background-color: #CCCCCC;
             cursor: not-allowed;
         }
+        .form{
+            border: 1px solid black;
+            height: 100%;
+        }
+        h1{
+            font-size: 18px;
+            margin-left: 20px;
+
+        }
     </style>
 </head>
 <body>
+    <div class="form">
     <h1>Join us to pioneer change, one idea at a time. Are you ready to innovate with us?</h1>
     <form name="join-us-form" data-netlify="true" enctype="multipart/form-data">
         <label for="firstName">*First Name:</label>
@@ -83,7 +99,7 @@
     </form>
     
     <p id="thankYouMessage" style="display: none;">We appreciate your interest in joining us as a partner. A representative from our team will reach out to you soon.</p>
-    
+    </div>
     <script>
         const form = document.forms['join-us-form'];
         const submitButton = document.getElementById('submitButton');
