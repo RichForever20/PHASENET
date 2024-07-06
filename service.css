@@ -70,7 +70,10 @@ padding-top:70px ;
     padding-left: 15px;
     padding-right: 15px;
 }
-
+.imgg{
+    height: 50px;
+    width: 40px;
+}
 }
 .nail p{
     text-align: justify;
