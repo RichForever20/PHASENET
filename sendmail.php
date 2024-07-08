@@ -1,32 +1,26 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Collect form data
-    $firstName = htmlspecialchars($_POST['name']);
-    $lastName = htmlspecialchars($_POST['lastName']);
-    $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
-    $subject = htmlspecialchars($_POST['subject']);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $first_name = htmlspecialchars($_POST['first_name']);
+    $last_name = htmlspecialchars($_POST['last_name']);
+    $email = htmlspecialchars($_POST['email']);
     $message = htmlspecialchars($_POST['message']);
 
-    // Verify email
-    if (!$email) {
-        die('Invalid email address.');
-    }
+    $to = "info@phasenetinnovations.com"; // Replace with your email address
+    $subject = "New Contact Form Submission";
+    $headers = "From: " . $email . "\r\n";
+    $headers .= "Reply-To: " . $email . "\r\n";
+    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
-    // Prepare the email
-    $to = 'your-email@example.com';  // Replace with your email address
-    $email_subject = 'New Contact Form Submission: ' . $subject;
-    $email_body = "First Name: $firstName\nLast Name: $lastName\nEmail: $email\n\nMessage:\n$message";
-    $headers = 'From: ' . $email . "\r\n" .
-               'Reply-To: ' . $email . "\r\n" .
-               'X-Mailer: PHP/' . phpversion();
+    $body = "<h2>Contact Form Submission</h2>
+             <p><strong>First Name:</strong> {$first_name}</p>
+             <p><strong>Last Name:</strong> {$last_name}</p>
+             <p><strong>Email:</strong> {$email}</p>
+             <p><strong>Message:</strong><br>{$message}</p>";
 
-    // Send the email
-    if (mail($to, $email_subject, $email_body, $headers)) {
-        echo 'Thank you for your message. We will get back to you soon.';
+    if (mail($to, $subject, $body, $headers)) {
+        echo "<script>alert('Thank you for contacting us. We will get back to you soon.'); window.location.href = 'index.html';</script>";
     } else {
-        echo 'Sorry, there was an error sending your message. Please try again later.';
+        echo "<script>alert('Message sending failed. Please try again later.'); window.location.href = 'contact.html';</script>";
     }
-} else {
-    echo 'Invalid request method.';
 }
 ?>

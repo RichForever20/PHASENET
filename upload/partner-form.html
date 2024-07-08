@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="partner.css">
+    <title>Become A Partner</title>
+</head>
+<body>
+    <div class="form-container">
+<h1>Join us to pioneer change, one idea at a time. Are you ready to innovate with us?</h1>
+    
+    <form id="joinUsForm" action="submit_form.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()" >
+        <label>*First Name:</label>
+        <input type="text" name="first_name" required><br>
+        
+        <label>*Last Name:</label>
+        <input type="text" name="last_name" required><br>
+        
+        <label>Organization Name:</label>
+        <input type="text" name="organization_name"><br>
+        
+        <label>*Country of Residence:</label>
+        <input type="text" name="country" required><br>
+        
+        <label>*Email:</label>
+        <input type="email" name="email" required><br>
+        
+        <label>*Describe at a high level the problem your idea will solve:</label><br>
+        <textarea name="problem_description" rows="4" cols="50" required></textarea><br>
+        
+        <label>*Are you aware of any digital product that will deliver same solution:</label>
+        <select name="existing_solution" id="existing_solution" required onchange="toggleExistingSolutionDetails()">
+            <option value="">Select</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br>
+        
+        <label id="existing_solution_details_label" style="display:none;">Provide details of the existing Digital Product:</label><br>
+        <textarea id="existing_solution_details" name="existing_solution_details" rows="4" cols="50" style="display:none;"></textarea><br>
+        
+        <label>For your Intellectual Property Protection, attach a copy of your Non-Disclosure Agreement.</label><br>
+        <input type="file" name="nda_file" id="nda_file"><br>
+        
+        <input type="checkbox" name="request_nda" id="request_nda" value="request" onclick="toggleNdaAttachment()"> No NDA currently, request a copy of PhaseNet Innovations Ltd.’s NDA Draft<br><br>
+        
+        <button type="submit" id="submit_button" disabled>Submit</button>
+    </form>
+    </div>
+    <script>
+        function validateForm() {
+            const requiredFields = document.querySelectorAll('input[required], textarea[required], select[required]');
+            for (let field of requiredFields) {
+                if (!field.value.trim()) {
+                    alert("Please fill out all required fields.");
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function toggleExistingSolutionDetails() {
+            const existingSolution = document.getElementById('existing_solution').value;
+            const existingSolutionDetails = document.getElementById('existing_solution_details');
+            const existingSolutionDetailsLabel = document.getElementById('existing_solution_details_label');
+            if (existingSolution === 'Yes') {
+                existingSolutionDetails.style.display = 'block';
+                existingSolutionDetailsLabel.style.display = 'block';
+                existingSolutionDetails.required = true;
+            } else {
+                existingSolutionDetails.style.display = 'none';
+                existingSolutionDetailsLabel.style.display = 'none';
+                existingSolutionDetails.required = false;
+            }
+        }
+
+        function toggleNdaAttachment() {
+            const ndaFile = document.getElementById('nda_file');
+            const requestNda = document.getElementById('request_nda');
+            if (requestNda.checked) {
+                ndaFile.disabled = true;
+            } else {
+                ndaFile.disabled = false;
+            }
+        }
+
+        document.getElementById('joinUsForm').addEventListener('input', function() {
+            const requiredFields = document.querySelectorAll('input[required], textarea[required], select[required]');
+            let allFilled = true;
+            for (let field of requiredFields) {
+                if (!field.value.trim()) {
+                    allFilled = false;
+                    break;
+                }
+            }
+            document.getElementById('submit_button').disabled = !allFilled;
+        });
+    </script>
+</body>
+</html>
